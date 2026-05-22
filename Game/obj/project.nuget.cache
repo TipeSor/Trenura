@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "U04b0C1hDYU=",
+  "success": true,
+  "projectFilePath": "/home/tipe/source/c#/Trenura/Game/Game.csproj",
+  "expectedPackageFiles": [
+    "/home/tipe/.nuget/packages/raylib-cs/7.0.2/raylib-cs.7.0.2.nupkg.sha512",
+    "/home/tipe/.nuget/packages/tipe.console.utils/1.0.0/tipe.console.utils.1.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
