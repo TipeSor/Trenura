@@ -34,7 +34,6 @@ class LevelSpinner : Scene
             GameManager.SceneIndex.Level6,
             GameManager.SceneIndex.CoinFlip
         ]));
-        AddEntity(new TileClickDebugger(_tilemap));
         _coinLabel = AddWidget(new CoinLabel(fontSize: 28));
 
         Entity spinnerObject = AddEntity(new Entity());

@@ -27,7 +27,6 @@ class Level3 : Scene
 
         AddEntity(new CameraHandler(_player.transform, _tilemap));
         AddEntity(new Door(_player, GetDoorPosition(), GameManager.SceneIndex.TutorialSubmit));
-        AddEntity(new TileClickDebugger(_tilemap));
 
         _coinLabel = AddWidget(new CoinLabel(fontSize: 28));
 

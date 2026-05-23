@@ -31,6 +31,4 @@ win.AddScene(new LevelSpinner());
 win.AddScene(new CoinFlip());
 win.AddScene(new RunSummary());
 
-// win.CurrentSceneIndex = GameManager.SceneIndex.CoinFlip;
-
 win.Run();

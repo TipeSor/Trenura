@@ -31,7 +31,6 @@ class Level5 : Scene
             GameManager.SceneIndex.Spinner,
             GameManager.SceneIndex.CoinFlip
         ]));
-        AddEntity(new TileClickDebugger(_tilemap));
         _coinLabel = AddWidget(new CoinLabel(fontSize: 28));
 
         SpawnCoins();
