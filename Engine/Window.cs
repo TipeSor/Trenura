@@ -211,7 +211,7 @@ public class Window
                 Raylib.BeginTextureMode(_targetTexture);
                 Raylib.ClearBackground(BackgroundColor);
 
-                Render.Draw(this);
+                Renderer.Draw(this);
 
                 Raylib.EndTextureMode();
             }
@@ -235,23 +235,23 @@ public class Window
             #endregion
         }
 
-        DebugManager.Log(LogLevel.Info, "SE: Unloading Scenes...");
+        DebugManager.Log(LogLevel.Info, "Unloading scenes...");
         foreach (var scene in Scenes)
             scene.Unload();
-        DebugManager.Log(LogLevel.Info, "SE: Scenes unloaded !");
+        DebugManager.Log(LogLevel.Info, "Scenes unloaded.");
 
-        DebugManager.Log(LogLevel.Info, "SE: Unloading Textures...");
+        DebugManager.Log(LogLevel.Info, "Unloading textures...");
         Raylib.UnloadRenderTexture(_targetTexture);
         TextureManager.Unload();
-        DebugManager.Log(LogLevel.Info, "SE: Textures unloaded !");
-        DebugManager.Log(LogLevel.Info, "SE: Unloading Fonts...");
-        // FontManager.Unload();
-        DebugManager.Log(LogLevel.Info, "SE: Fonts unloaded !");
-        DebugManager.Log(LogLevel.Info, "SE: Unloading Shaders...");
+        DebugManager.Log(LogLevel.Info, "Textures unloaded.");
+        DebugManager.Log(LogLevel.Info, "Unloading fonts...");
+        FontManager.Unload();
+        DebugManager.Log(LogLevel.Info, "Fonts unloaded.");
+        DebugManager.Log(LogLevel.Info, "Unloading shaders...");
         // ShaderManager.Unload();
-        DebugManager.Log(LogLevel.Info, "SE: Shaders unloaded !");
+        DebugManager.Log(LogLevel.Info, "Shaders unloaded.");
 
-        DebugManager.Log(LogLevel.Info, "SE: Closing Window.");
+        DebugManager.Log(LogLevel.Info, "Closing window.");
         Raylib.CloseAudioDevice();
         Raylib.CloseWindow();
     }

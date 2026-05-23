@@ -36,6 +36,16 @@ public static class CameraManager
         set => Camera2D.Target = value;
     }
 
+    /// <summary>
+    /// Size of the camera view in world units
+    /// </summary>
+    public static Vector2 ViewSize => (Camera2D.Offset * 2.0f) / Zoom;
+
+    /// <summary>
+    /// Half size of the camera view in world units
+    /// </summary>
+    public static Vector2 HalfViewSize => Camera2D.Offset / Zoom;
+
     internal static Camera2D Camera2D = new Camera2D(Vector2.Zero, Vector2.Zero, 0, 1);
 
     internal static void SetScreenSize(Vector2 screenSize)

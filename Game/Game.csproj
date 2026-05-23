@@ -13,7 +13,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-      <EmbeddedResource Include="Assets/**/*" />
+    <Content Include="Assets/**/*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <EmbeddedResource Include="Assets/**/*" />
   </ItemGroup>
 
 </Project>

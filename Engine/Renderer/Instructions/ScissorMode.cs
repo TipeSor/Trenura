@@ -17,7 +17,7 @@ internal record ScissorMode(
     {
         base.Execute();
         Raylib.BeginScissorMode((int)PosX, (int)PosY, (int)Width, (int)Height);
-        Render.DrawInstructions(Instructions);
+        Renderer.DrawInstructions(Instructions);
         Raylib.EndScissorMode();
     }
 }

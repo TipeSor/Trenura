@@ -7,7 +7,7 @@ namespace Engine;
 /// Static class which used to render textures, texts or rectangles
 /// </summary>
 // ReSharper disable once InconsistentNaming
-public static class Render
+public static class Renderer
 {
     /// <summary>
     /// Number of Last Instructions

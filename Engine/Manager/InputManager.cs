@@ -11,6 +11,12 @@ public static class InputManager
     internal static List<int> InternalPressedChars { get; } = [];
     private static List<int> InternalPressedKeys { get; } = [];
     internal static Window InternalWindow { get; set; } = null!;
+    private static bool _mouseConsumed;
+
+    /// <summary>
+    /// If mouse input is consumed by UI
+    /// </summary>
+    public static bool MouseConsumed => _mouseConsumed;
 
     /// <summary>
     /// List of Pressed Chars in Frame
@@ -81,6 +87,40 @@ public static class InputManager
     /// <returns>If the mouse button is released</returns>
     public static bool IsMouseButtonReleased(MouseButton button) =>
         Raylib.IsMouseButtonReleased(button);
+
+    /// <summary>
+    /// Check if mouse is inside rectangle
+    /// </summary>
+    /// <param name="rectangle">Rectangle in render space</param>
+    /// <returns>If mouse is inside rectangle</returns>
+    public static bool IsMouseInRectangle(Rectangle rectangle)
+    {
+        Vector2 mousePosition = GetMousePosition();
+
+        return mousePosition.X >= rectangle.X
+            && mousePosition.X <= rectangle.X + rectangle.Width
+            && mousePosition.Y >= rectangle.Y
+            && mousePosition.Y <= rectangle.Y + rectangle.Height;
+    }
+
+    /// <summary>
+    /// Consume mouse input
+    /// </summary>
+    public static void ConsumeMouse() => _mouseConsumed = true;
+
+    /// <summary>
+    /// Check if mouse can be consumed by rectangle and consume it if possible
+    /// </summary>
+    /// <param name="rectangle">Rectangle in render space</param>
+    /// <returns>If mouse was inside rectangle and is now consumed</returns>
+    public static bool TryConsumeMouse(Rectangle rectangle)
+    {
+        if (_mouseConsumed || !IsMouseInRectangle(rectangle))
+            return false;
+
+        _mouseConsumed = true;
+        return true;
+    }
 
     /// <summary>
     /// Get Mouse position
@@ -181,6 +221,7 @@ public static class InputManager
     {
         InternalPressedChars.Clear();
         InternalPressedKeys.Clear();
+        _mouseConsumed = false;
 
         var key = Raylib.GetKeyPressed();
         while (key > 0)
@@ -197,4 +238,3 @@ public static class InputManager
         }
     }
 }
-

@@ -6,6 +6,11 @@ namespace Engine;
 public class Entity
 {
     /// <summary>
+    /// Define if Entity is active
+    /// </summary>
+    public bool Active { get; set; } = true;
+
+    /// <summary>
     /// How Entity must be updated when paused
     /// </summary>
     public PauseState PauseState { get; set; } = PauseState.Normal;
@@ -63,6 +68,11 @@ public class Entity
     /// <returns>Scene cast as T</returns>
     public T? GetSceneAs<T>()
         where T : Scene => (T?)Scene;
+
+    /// <summary>
+    /// Check if Entity is active in hierarchy
+    /// </summary>
+    public bool ActiveInHierarchy => Active && (Parent?.ActiveInHierarchy ?? true);
 
     /// <summary>
     /// Add Child Entity
@@ -144,6 +154,9 @@ public class Entity
     /// <param name="delta">Time since last frame</param>
     public virtual void Update(float delta)
     {
+        if (!Active)
+            return;
+
         foreach (var component in Components)
             component.Update(delta);
 
@@ -156,6 +169,9 @@ public class Entity
     /// </summary>
     public virtual void Draw()
     {
+        if (!Active)
+            return;
+
         foreach (var component in Components)
             component.Draw();
 
@@ -163,4 +179,3 @@ public class Entity
             child.Draw();
     }
 }
-

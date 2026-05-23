@@ -11,7 +11,7 @@ internal record ShaderMode(Shader Shader, List<Instruction> Instructions) : Inst
     {
         base.Execute();
         Raylib.BeginShaderMode(Shader);
-        Render.DrawInstructions(Instructions);
+        Renderer.DrawInstructions(Instructions);
         Raylib.EndShaderMode();
     }
 }

@@ -16,12 +16,10 @@ public class Rigidbody : Component
     public float Mass { get; set; }
     public bool Simulated { get; set; }
 
-    public bool IsTrigger { get; set; }
-
     public Rigidbody()
     {
         Velocity = Vector2.Zero;
-        BodyKind = RigidbodyType.Kinematic;
+        BodyKind = RigidbodyType.Dynamic;
         Constraints = RigidbodyConstraint.None;
 
         GravityScale = 1.0f;
